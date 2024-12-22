@@ -1,0 +1,198 @@
+/* Reset Some Basic Elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables for Easy Theme Management */
+:root {
+    --primary-color: #ffffff; /* White */
+    --secondary-color: #dddddd; /* Light Gray */
+    --background-color: #000000; /* Black */
+    --container-color: rgba(0, 0, 0, 0.8); /* Semi-transparent Black */
+    --text-color: #ffffff; /* White */
+    --subtext-color: #bbbbbb; /* Gray */
+    --accent-color: #ff4081; /* Accent Color (Pink) */
+    --transition-speed: 0.5s;
+}
+
+/* Body Styling */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Greeting Section */
+.greeting-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Greeting Texts */
+.greetings {
+    position: absolute;
+    top: 30%;
+    font-size: 2.5em; /* Increased font size for better visibility */
+    height: 2.5em;
+}
+
+.greet-text {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    transition: opacity var(--transition-speed) ease-in-out, transform var(--transition-speed);
+}
+
+.greet-text.active {
+    opacity: 1;
+}
+
+/* Name Display */
+.name-display {
+    font-family: 'Pacifico', cursive;
+    font-size: 5em; /* Increased font size for emphasis */
+    margin-top: 20px; /* Adjusted margin for better spacing */
+    animation: fadeInName 2s forwards, bounceName 1s infinite alternate; /* Added bounce animation */
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 12px; /* Increased size for better visibility */
+    height: 12px; /* Increased size for better visibility */
+    margin: 5px 0;
+    background-color: var(--accent-color); /* Changed to accent color */
+    border-radius: 50%;
+}
+
+@keyframes bounceName {
+   from { transform: translateY(0); }
+   to { transform: translateY(-10px); }
+}
+
+/* Profile Main */
+.profile-main {
+   padding: 60px 20px;
+   background-color: var(--background-color);
+   color: var(--text-color);
+   box-shadow: inset 0 0 10px rgba(255,255,255,0.1); /* Added inner shadow for depth */
+}
+
+/* Profile Sections */
+.profile-section {
+   opacity: 0;
+   transform: translateY(50px);
+   transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+   margin-bottom: 60px;
+   border-radius: 8px; /* Added rounded corners for a softer look */
+   padding: 20px; /* Added padding for better spacing within sections */
+   background-color: var(--container-color); /* Background color for sections */
+}
+
+.profile-section.visible {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.profile-section h2 {
+   font-size: 2.5em; /* Increased heading size for prominence */
+   color: var(--accent-color); /* Changed heading color to accent color */
+   margin-bottom: 20px;
+   position: relative;
+}
+
+.profile-section h2::after {
+   content:'';
+   width :50px ;
+   height :3px ;
+   background-color :var(--accent-color); /* Changed to accent color */
+   position:absolute ;
+   left :0 ;
+   bottom :-10px ;
+}
+
+.profile-section p {
+   font-size :1.1em ;
+   color :var(--subtext-color) ;
+}
+
+.profile-section ul {
+   list-style-type:none ;
+   padding-left :0 ;
+}
+
+.profile-section ul li {
+   margin-bottom :12px ;
+   padding-left :25px ;
+}
+
+.profile-section ul li:hover {
+   transform :translateX(5px) scale(1.05); /* Scale on hover for effect */
+}
+
+/* Skills Section */
+.skills-group h3 {
+   margin-top :15px ;
+   font-size :1.2em ;
+}
+
+.skills-group p {
+   margin-left :30px ;
+}
+
+/* Contact Section */
+.contact ul li a:hover {
+   color :var(--accent-color); /* Changed hover color to accent color for consistency */
+}
+
+/* Footer Styling */
+.profile-footer {
+   text-align:center ;
+   padding :20px ;
+}
+
+/* Footer Links Hover Effect*/
+.profile-footer a:hover {
+   text-decoration:none ; 
+}
+
+/* Name Display Animation */
+@keyframes fadeInName {
+   from { opacity :0 ; transform :translateY(-20px) ; }
+}
+
+/* Responsive Design Enhancements*/
+@media (max-width :1200px) {
+     .profile-main { 
+         padding :50px ; 
+     }
+}
+
+@media (max-width :768px) {
+     .name-display { 
+         font-size :3em ; 
+     }
+}
